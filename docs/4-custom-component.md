@@ -124,7 +124,7 @@ BootstrapベースのWebアプリケーションも多いと思うので、見�
 
 [mg-getで提供されていないリソースを利用する→](./5-use-mgt-get.md)
 
-# 参考
+# 関連ドキュメント
 
 * [Graph Tool Kit-スタイルコンポーネント](https://docs.microsoft.com/ja-jp/graph/toolkit/customize-components/style?view=graph-rest-1.0)
 * [Graph Tool Kit-テンプレートコンポーネント](https://docs.microsoft.com/ja-jp/graph/toolkit/customize-components/templates?view=graph-rest-1.0)

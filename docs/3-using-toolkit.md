@@ -11,13 +11,14 @@
     <mgt-msal2-provider client-id="<ClientId>"
       authority="https://login.microsoftonline.com/<TenantId>/"></mgt-msal2-provider>
     <mgt-login></mgt-login>
+    <mgt-agenda></mgt-agenda>
   </body>
 </html>
 ```
 
 これで実装完了です。
 
-先程自分で実装した画面同様、ログインボタン押下後、ログインすることで、画面にログインしているユーザーの情報が表示されます。
+先程自分で実装した画面同様、ログインボタン押下後、ログインすることで、画面にログインしているユーザーと予定表の情報が表示されます。
 
 ## コードの解説
 
@@ -59,9 +60,16 @@ msal2以外に下記のプロバイダが存在します。アプリケーショ
 
 Componentでそれらの処理がパッケージングされて提供されているので、このタグだけでそれらの機能を利用することが可能です。
 
+### mgt-agenda
+
+予定の出力機能を提供するComponentです。
+
+この中に先で実装した予定の取得や表示の制御なんかがすべて実装されています。
+
+
 [mg-getで提供されていないリソースを利用する→](./4-custom-component.md)
 
-# 参考
+# 関連ドキュメント
 
 * [Microsoft Graph Toolkit](https://docs.microsoft.com/ja-jp/graph/toolkit/get-started/overview?tabs=html)
 * [Microsoft Graph Toolkit の ログイン コンポーネント](https://docs.microsoft.com/ja-jp/graph/toolkit/components/login?context=graph%2Fapi%2F1.0&view=graph-rest-1.0)

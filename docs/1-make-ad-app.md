@@ -28,6 +28,6 @@ Azure Active Directoryから「アプリの登録」でAzure ADアプリケー�
 
 [Microsoft Graphを利用するWebアプリケーションを作る→](2-make-web-app.md)
 
-# このページの参考ドキュメント
+# 関連ドキュメント
 
 [Microsoft Graph Toolkit で使用する Azure Active Directory アプリを作成します](https://docs.microsoft.com/ja-jp/graph/toolkit/get-started/add-aad-app-registration)

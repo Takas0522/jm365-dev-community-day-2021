@@ -128,7 +128,7 @@ scopesで先程Azure ADアプリケーションに設定した`Presence.Read`を
 
 [いろいろなComponentを使ってみる＋応用編→](./6-use-any-component.md)
 
-# 参考
+# 関連ドキュメント
 
 * [プレゼンスを取得する](https://docs.microsoft.com/ja-jp/graph/api/presence-get?view=graph-rest-1.0&tabs=http)
 * [Microsoft Graph ツールキット Get コンポーネント](https://docs.microsoft.com/ja-jp/graph/toolkit/components/get?view=graph-rest-1.0)

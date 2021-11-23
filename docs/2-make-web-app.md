@@ -100,6 +100,7 @@ Azure ADを利用した認証を助けてくれるライブラリ`msal`を使用
     <button id="login">ログイン</button>
   </div>
   <div id="contents"></div>
+  <div id="agenda"></div>
   <script>
   </script>
 </html>
@@ -152,6 +153,7 @@ Azure ADを利用した認証を助けてくれるライブラリ`msal`を使用
       }
 
       const parent = document.getElementById('contents');
+      const agenda = document.getElementById('agenda');
 
       // 取得したユーザー情報をHTML上に描画
       if (photoData) {
@@ -173,11 +175,70 @@ Azure ADを利用した認証を助けてくれるライブラリ`msal`を使用
 </script>
 ```
 
+レイアウトを整えるためCSSを適用します。
+
+``` css
+<style>
+  #contents {
+    height: 25px;
+    line-height: 25px;
+  }
+  img {
+    height: 25px;
+    border-radius: 50%;
+    vertical-align: middle;
+  }
+  .user-info {
+    vertical-align: middle;
+  }
+</style>
+```
+
 これで、Azure ADアプリケーションとMicrosoft Graphを利用したアプリケーションが作成できました。
+
+# 例に上げた予定表情報の取得を行ってみる
+
+## ①AzureADアプリケーションのアクセス許可
+
+![](./.attachments/2/2021-11-21-18-06-57.png)
+
+![](./.attachments/2/2021-11-21-18-08-46.png)
+
+## ②ログイン
+
+ログイン時に予定情報(カレンダー)へのスコープを指定する
+
+``` js
+// const loginResult = await myMSALObj.loginPopup({ scopes: ['user.read'] });
+const loginResult = await myMSALObj.loginPopup({ scopes: ['user.read', 'calendars.read'] });
+```
+
+## ③アクセス要求と④アクセス許可
+
+``` js
+// const res = await myMSALObj.acquireTokenSilent({scopes: ['user.read'], account: loginResult.account});
+const res = await myMSALObj.acquireTokenSilent({scopes: ['user.read', 'calendars.read'], account: loginResult.account});
+```
+
+## ⑤データ取得と画面への反映
+
+下記を追加
+
+``` js
+const calres = await fetch('https://graph.microsoft.com/v1.0/me/calendar/calendarView?startDateTime=2021/11/01&endDateTime=2021/12/31', options);
+const calendarData = await calres.json();
+console.log(calendarData)
+const ag = calendarData.value[0];
+const agendaEl = document.createElement('label');
+const agendaContent = document.createTextNode(`${ag.subject}(${ag.start.dateTime})`);
+agendaEl.appendChild(agendaContent);
+
+agenda.appendChild(agendaEl);
+```
 
 [Graph Tool Kitを利用してMicrosoft Graphを利用するWebアプリケーションを作る→](./3-using-toolkit.md)
 
-# このページの参考ドキュメント
+# 関連ドキュメント
 
 * [Microsoft Authentication Library (MSAL) の概要](https://docs.microsoft.com/ja-jp/azure/active-directory/develop/msal-overview)
 * [AzureAD/microsoft-authentication-library-for-js](https://github.com/AzureAD/microsoft-authentication-library-for-js)
