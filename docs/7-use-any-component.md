@@ -10,7 +10,7 @@ Graph Tool Kitは標準で様々なComponentが提供されています。いろ
 
 提供されているComponentは[ドキュメント](https://docs.microsoft.com/ja-jp/graph/toolkit/components/login?view=graph-rest-1.0)から参照できます。
 
-![Componentの一覧](./.attachments/6/2021-11-13-12-59-20.png)
+![Componentの一覧](./.attachments/7/2021-11-13-12-59-20.png)
 
 あるいは[GitHubのComponents](https://github.com/microsoftgraph/microsoft-graph-toolkit#components)でもいいと思います。
 
@@ -20,17 +20,18 @@ Graph Tool Kitは標準で様々なComponentが提供されています。いろ
 
 まずは「アクセス許可」の確認です。これを抑えておかないとデータの取得が行なえません。
 
-![予定一覧で必要なアクセス許可](./.attachments/6/2021-11-13-13-05-27.png)
+![予定一覧で必要なアクセス許可](./.attachments/7/2021-11-13-13-05-27.png)
 
 必要なのは`Calendars.Read`なのでAzure ADアプリケーションでアクセス許可を与えておきます。
 
 ## 使い方の確認
 
+
 ### まずは基本の使い方
 
 「例」のセクションにあるHTMLタグを使用して、データ取得できるか試してみます。
 
-![例の例](./.attachments/6/2021-11-13-13-09-09.png)
+![例の例](./.attachments/7/2021-11-13-13-09-09.png)
 
 ### プロパティをいじってみる
 
@@ -38,7 +39,7 @@ Graph Tool Kitは標準で様々なComponentが提供されています。いろ
 
 **属性名もプロパティも翻訳されてしまっていますが、英語名での表記になります。**
 
-![属性セクション](./.attachments/6/2021-11-13-13-10-58.png)
+![属性セクション](./.attachments/7/2021-11-13-13-10-58.png)
 
 ## カスタマイズを行う場合
 

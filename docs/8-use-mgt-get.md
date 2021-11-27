@@ -16,23 +16,23 @@ Componentが提供されていないリソースへのアクセスも`mgt-get`�
 
 ドキュメントでは下図のように記載されています。
 
-![アクセス許可](./.attachments/5/2021-11-11-20-22-40.png)
+![アクセス許可](./.attachments/8/2021-11-11-20-22-40.png)
 
 そのため、まずは、Azure ADアプリケーションでアクセス許可を与えます。
 
 Azure ADアプリケーションで「API Permission」から「Microsoft Graph」を選択します
 
-![APIのアクセス許可](./.attachments/5/2021-11-11-20-27-45.png)
+![APIのアクセス許可](./.attachments/8/2021-11-11-20-27-45.png)
 
 Microsoft GraphのPermissionから先程ドキュメントで確認した`Presence.Read`を選択し追加します。
 
-![プレセンスの追加](./.attachments/5/2021-11-11-20-31-05.png)
+![プレセンスの追加](./.attachments/8/2021-11-11-20-31-05.png)
 
 ここから、`mgt-get`を使用していきます。[ドキュメント](https://docs.microsoft.com/ja-jp/graph/toolkit/components/get?view=graph-rest-1.0)で使い方を確認します。
 
 Componentのプロパティに取得するリソースなどを指定します。今回重要と思われるのは下図のとおりでしょうか。
 
-![ドキュメント](./.attachments/5/2021-11-11-20-38-18.png)
+![ドキュメント](./.attachments/8/2021-11-11-20-38-18.png)
 
 取得するURLを指定するのでリソースは言わずもがなですね。
 
@@ -44,7 +44,7 @@ scopesで先程Azure ADアプリケーションに設定した`Presence.Read`を
 
 テンプレートで使用できる値は下記の通りですが、ひとまず`default`を`data-type`に指定します。
 
-![テンプレートで使用できるプロパティ](./.attachments/5/2021-11-11-21-03-43.png)
+![テンプレートで使用できるプロパティ](./.attachments/8/2021-11-11-21-03-43.png)
 
 [テンプレートでは雑に`this`でできるとある](https://docs.microsoft.com/ja-jp/graph/toolkit/customize-components/templates#this)ので、thisでアクセスしてみます。
 
@@ -62,11 +62,11 @@ scopesで先程Azure ADアプリケーションに設定した`Presence.Read`を
 
 結果、下記のようなデータが取得できました。
 
-![データ取得](./.attachments/5/2021-11-11-21-09-58.png)
+![データ取得](./.attachments/8/2021-11-11-21-09-58.png)
 
 `activity`の対応表は[Docs](https://docs.microsoft.com/en-us/microsoftteams/presence-admins)にある下図とおりです。
 
-![Activity](./.attachments/5/2021-11-11-21-12-54.png)
+![Activity](./.attachments/8/2021-11-11-21-12-54.png)
 
 これを踏まえて、下記の通り変更してみます。
 

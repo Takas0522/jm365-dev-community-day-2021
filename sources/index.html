@@ -1,136 +1,24 @@
-<!-- <html>
+<html>
   <head>
-    <script type="text/javascript" src="https://alcdn.msauth.net/browser/2.19.0/js/msal-browser.min.js"></script>
-    <style>
-      #contents {
-        height: 25px;
-        line-height: 25px;
-      }
-      img {
-        height: 25px;
-        border-radius: 50%;
-        vertical-align: middle;
-      }
-      .user-info {
-        vertical-align: middle;
-      }
-    </style>
-  </head>
-  <div>
-    <button id="login">ログイン</button>
-  </div>
-  <div id="contents"></div>
-  <script>
-    // 認証オブジェクトを作成
-    const myMSALObj = new msal.PublicClientApplication({
-      auth: {
-        clientId: 'd7418163-08b4-4d5f-941f-45897951f01d',
-        authority: 'https://login.microsoftonline.com/1c4e72e7-52a1-475f-b469-0d4fbf3eae2e/'
-      }
-    });
-
-    const btn = document.getElementById('login');
-
-    const  loginAction = async () => {
-      // ポップアップでログイン処理を実行
-      const loginResult = await myMSALObj.loginPopup({ scopes: ['user.read'] });
-
-      // 以降ログインが成功したときの処理
-      // ログインボタンを消す
-      btn.remove();
-
-      // Microsoft Graphのユーザー情報にアクセスするためのアクセストークンの取得
-      const res = await myMSALObj.acquireTokenSilent({scopes: ['user.read'], account: loginResult.account});
-
-      // ユーザー情報をMicrosoft Graph経由で取得
-      const headersInfo = new Headers();
-      headersInfo.append('Authorization', `Bearer ${res.accessToken}`);
-      const options = {
-        method: 'GET',
-        headers: headersInfo
-      };
-      const fres = await fetch('https://graph.microsoft.com/v1.0/me', options);
-      const data = await fres.json();
-
-      // ユーザーアイコンをMicrosoft Graph経由で取得(アイコンを設定していない場合は404になる)
-      const photores = await fetch('https://graph.microsoft.com/v1.0/me/photo/$value', options).catch(e => { return null;});
-      let photoData = null;
-      if (photores.ok) {
-        photoData = await photores.blob();
-      }
-
-      const parent = document.getElementById('contents');
-
-      // 取得したユーザー情報をHTML上に描画
-      if (photoData) {
-        const photoEl = document.createElement('img');
-        const url = (window.URL || window.webkitURL).createObjectURL(photoData);
-        photoEl.setAttribute('src', url);
-        parent.appendChild(photoEl);
-      }
-      const userInfoEl = document.createElement('label');
-      const content = document.createTextNode(data.displayName);
-      userInfoEl.appendChild(content);
-      userInfoEl.setAttribute('class', 'user-info');
-
-      parent.appendChild(userInfoEl);
-    }
-
-    btn.addEventListener('click', loginAction);
-  </script>
-</html> -->
-<!-- <html>
-  <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/@microsoft/mgt/dist/bundle/mgt-loader.js"></script>
-    <script>
-      genStatus = (activity) => {
-        switch (activity.toLowerCase()) {
-          case 'away':
-            return '離席'
-          case 'available':
-            return '連絡可能'
-          case 'busy':
-            return '対応不可'
-          case 'do not disturb':
-            return '会議中'
-          case 'be right back':
-            return 'すぐ戻る予定'
-          case 'appear offline':
-            return 'オフライン'
-          default:
-            break;
-        }
-      }
-    </script>
   </head>
   <body>
     <mgt-msal2-provider client-id="d7418163-08b4-4d5f-941f-45897951f01d"
       authority="https://login.microsoftonline.com/1c4e72e7-52a1-475f-b469-0d4fbf3eae2e/"></mgt-msal2-provider>
-    <mgt-login>
-        <template data-type="signed-in-button-content">
-          <div class="card" style="width: 18rem;">
-            <img src="{{personImage}}" class="card-img-top">
-            <div class="card-body">
-              <h5 class="card-title">
-                {{personDetails.displayName}}
-                <mgt-get resource="/me/presence" scopes="Presence.Read">
-                  <template data-type="default">
-                    ({{genStatus(this.availability)}})
-                  </template>
-                </mgt-get>
-              </h5>
-              <p class="card-text">{{personDetails.mail}}</p>
-            </div>
-          </div>
-        </template>
-    </mgt-login>
-    <script>
-      const doc = document.querySelector('mgt-login');
-      console.log(doc.templateContext)
-      doc.addEventListener('loginCompleted', e => { console.log(e) })
-    </script>
+    <input type="date" placeholder="イベント取得開始日" id="inputdate"/>
+    <mgt-agenda date="2021-11-07"></mgt-agenda>
+    <button id="reloadbutton">画面更新</button>
   </body>
-</html> -->
+  <script>
+    const agenda = document.querySelector('mgt-agenda');
+    const inpd = document.getElementById('inputdate');
+    inpd.addEventListener('change', (event) => {
+      const value = event.target.value;
+      agenda.date = value;
+    });
+    const rb = document.getElementById('reloadbutton');
+    rb.addEventListener('click', () => {
+      agenda.reload();
+    });
+  </script>
+</html>

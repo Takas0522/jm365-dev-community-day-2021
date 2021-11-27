@@ -236,7 +236,7 @@ agendaEl.appendChild(agendaContent);
 agenda.appendChild(agendaEl);
 ```
 
-[Graph Tool Kitを利用してMicrosoft Graphを利用するWebアプリケーションを作る→](./3-using-toolkit.md)
+[Graph SDKを利用してMicrosoft Graphを利用するWebアプリケーションを作る→](./3-using-graph-sdk.md)
 
 # 関連ドキュメント
 
