@@ -8,6 +8,32 @@ Componentが提供されていないリソースへのアクセスも`mgt-get`�
 
 先に作ったアプリケーションに、ユーザーの状態(プレゼンス)を表示してみます。
 
+``` html
+<html>
+  <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/@microsoft/mgt/dist/bundle/mgt-loader.js"></script>
+  </head>
+  <body>
+    <mgt-msal2-provider client-id="<ClientId>"
+      authority="https://login.microsoftonline.com/<TenantId>/"></mgt-msal2-provider>
+    <mgt-login>
+        <template data-type="signed-in-button-content">
+          <div class="card" style="width: 18rem;">
+            <img src="{{personImage}}" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">{{personDetails.displayName}}</h5>
+              <p class="card-text">{{personDetails.mail}}</p>
+            </div>
+          </div>
+        </template>
+    </mgt-login>
+  </body>
+</html>
+```
+
 ## まずはリソースの確認
 
 何はともあれ、[ドキュメント](https://docs.microsoft.com/ja-jp/graph/api/presence-get?view=graph-rest-1.0&tabs=http)を確認します。
