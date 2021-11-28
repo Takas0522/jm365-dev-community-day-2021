@@ -1,5 +1,4 @@
-
-さらにComponentを触ってみる
+[←Graph Tool Kitを利用してMicrosoft Graphを利用するWebアプリケーションを作る(./4-using-toolkit)
 
 `mgt-login`は自分の情報を表示しましたが表示したいのは自分の情報ばかりではありません。
 
@@ -11,7 +10,27 @@ Graph Toolkitから提供されている様々なプロパティを利用して�
 
 予定を表示する[`mgt-agenda`](https://docs.microsoft.com/ja-jp/graph/toolkit/components/agenda)を使用して、その使い方の紐解き方を確認していきます。
 
-# まずは標準の動きを確認
+# ドキュメントの確認
+
+まずは使用したいComponentのドキュメントの確認です。
+
+提供されているComponentは[ドキュメント](https://docs.microsoft.com/ja-jp/graph/toolkit/components/login?view=graph-rest-1.0)から参照できます。
+
+![Componentの一覧](./.attachments/7/2021-11-13-12-59-20.png)
+
+あるいは[GitHubのComponents](https://github.com/microsoftgraph/microsoft-graph-toolkit#components)でもいいと思います。
+
+今回は上に書いたとおり[予定一覧](https://docs.microsoft.com/ja-jp/graph/toolkit/components/agenda)を参照してみます。
+
+## アクセス許可の確認
+
+まずは「アクセス許可」の確認です。これを抑えておかないとデータの取得が行なえません。
+
+![予定一覧で必要なアクセス許可](./.attachments/7/2021-11-13-13-05-27.png)
+
+必要なのは`Calendars.Read`なのでAzure ADアプリケーションでアクセス許可を与えておきます。
+
+# 標準の動きを確認
 
 ドキュメントの`例`の箇所で、標準的な使い方をするとどのような描画がされるか確認をすることができます。
 
@@ -141,3 +160,5 @@ JavaScriptからアクセスできる利点は数多くあります。
 動的に変化するアプリケーションが簡単に構築できることがわかりました。
 
 このようにComponentを利用/または検証を行う際は、まずドキュメントを参照しながら触っていくのが定石です。
+
+[Componentをカスタマイズする](./6-custom-component.md)

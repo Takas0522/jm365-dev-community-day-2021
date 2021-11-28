@@ -1,4 +1,4 @@
-[←Graph Tool Kitのコンポーネントをカスタマイズしてみる](./4-custom-component.md)
+[←すこし凝ったテンプレートの組み立て方→](./7-7-use-any-component.md)
 
 # mgt-getを使用する
 
@@ -126,7 +126,7 @@ scopesで先程Azure ADアプリケーションに設定した`Presence.Read`を
 </html>
 ```
 
-[いろいろなComponentを使ってみる＋応用編→](./6-use-any-component.md)
+[まとめ→](./9-summary.md)
 
 # 関連ドキュメント
 

@@ -1,4 +1,4 @@
-[←Microsoft Graphを利用するWebアプリケーションを作る](./2-make-web-app.md)
+[←Graph SDKを利用してMicrosoft Graphを利用するWebアプリケーションを作る](./3-using-graph-sdk.md)
 
 では、Graph Tool Kitを使ってログイン画面とユーザー情報の表示を実装してみます。
 
@@ -67,7 +67,7 @@ Componentでそれらの処理がパッケージングされて提供されて�
 この中に先で実装した予定の取得や表示の制御なんかがすべて実装されています。
 
 
-[mg-getで提供されていないリソースを利用する→](./4-custom-component.md)
+[Graph Tool Kitを更に利用する→](./5-using-toolkit-more.md)
 
 # 関連ドキュメント
 

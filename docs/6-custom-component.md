@@ -1,4 +1,4 @@
-[←Graph Tool Kitを利用してMicrosoft Graphを利用するWebアプリケーションを作る](./3-using-toolkit.md)
+[←Graph Tool Kitを更に利用する](./5-using-toolkit-more.md)
 
 Graph Tool Kitは便利ですが見た目など、使用しようとしているアプリケーションとマッチしない可能性があります。
 
@@ -122,7 +122,7 @@ BootstrapベースのWebアプリケーションも多いと思うので、見�
 
 上記のコードでBootstrapの`Card`ベースでレイアウトが組み直されることを確認できます。
 
-[mg-getで提供されていないリソースを利用する→](./5-use-mgt-get.md)
+[すこし凝ったテンプレートの組み立て方→](./7-7-use-any-component.md)
 
 # 関連ドキュメント
 
