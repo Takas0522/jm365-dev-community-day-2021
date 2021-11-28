@@ -25,8 +25,8 @@ AAD内のユーザーの一覧が表示されるようなコンポーネント�
     <script src="https://unpkg.com/@microsoft/mgt/dist/bundle/mgt-loader.js"></script>
   </head>
   <body>
-    <mgt-msal2-provider client-id="d7418163-08b4-4d5f-941f-45897951f01d"
-      authority="https://login.microsoftonline.com/1c4e72e7-52a1-475f-b469-0d4fbf3eae2e/"></mgt-msal2-provider>
+    <mgt-msal2-provider client-id="<ClientId>"
+      authority="https://login.microsoftonline.com/<TenantId>/"></mgt-msal2-provider>
     <mgt-get resource="users" scopes="User.ReadBasic.All">
       <template data-type="default">
         {{console.log(this)}}
@@ -50,8 +50,8 @@ AAD内のユーザーの一覧が表示されるようなコンポーネント�
     <script src="https://unpkg.com/@microsoft/mgt/dist/bundle/mgt-loader.js"></script>
   </head>
   <body>
-    <mgt-msal2-provider client-id="d7418163-08b4-4d5f-941f-45897951f01d"
-      authority="https://login.microsoftonline.com/1c4e72e7-52a1-475f-b469-0d4fbf3eae2e/"></mgt-msal2-provider>
+    <mgt-msal2-provider client-id="<ClientId>"
+      authority="https://login.microsoftonline.com/<TenantId>/"></mgt-msal2-provider>
     <mgt-get resource="users" scopes="User.ReadBasic.All">
       <template data-type="default">
         <div data-for="user in this.value">
@@ -79,8 +79,8 @@ AAD内のユーザーの一覧が表示されるようなコンポーネント�
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
   </head>
   <body>
-    <mgt-msal2-provider client-id="d7418163-08b4-4d5f-941f-45897951f01d"
-      authority="https://login.microsoftonline.com/1c4e72e7-52a1-475f-b469-0d4fbf3eae2e/"></mgt-msal2-provider>
+    <mgt-msal2-provider client-id="<ClientId>"
+      authority="https://login.microsoftonline.com/<TenantId>/"></mgt-msal2-provider>
     <mgt-get resource="users" scopes="User.ReadBasic.All">
       <template data-type="default">
         <div data-for="user in this.value">
@@ -122,8 +122,8 @@ AAD内のユーザーの一覧が表示されるようなコンポーネント�
   </head>
   <body>
     <button id="refresh-button">一覧更新</button>
-    <mgt-msal2-provider client-id="d7418163-08b4-4d5f-941f-45897951f01d"
-      authority="https://login.microsoftonline.com/1c4e72e7-52a1-475f-b469-0d4fbf3eae2e/"></mgt-msal2-provider>
+    <mgt-msal2-provider client-id="<ClientId>"
+      authority="https://login.microsoftonline.com/<TenantId>/"></mgt-msal2-provider>
     <mgt-get resource="users" scopes="User.ReadBasic.All">
       <template data-type="default">
         <div data-for="user in this.value">

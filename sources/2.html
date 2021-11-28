@@ -1,0 +1,59 @@
+<script>
+    // 認証オブジェクトを作成
+    const myMSALObj = new msal.PublicClientApplication({
+      auth: {
+        clientId: 'd7418163-08b4-4d5f-941f-45897951f01d',
+        authority: 'https://login.microsoftonline.com/1c4e72e7-52a1-475f-b469-0d4fbf3eae2e/'
+      }
+    });
+
+      const btn = document.getElementById('login');
+
+      const  loginAction = async () => {
+        // ポップアップでログイン処理を実行
+        const loginResult = await myMSALObj.loginPopup({ scopes: ['user.read'] });
+
+        // 以降ログインが成功したときの処理
+        // ログインボタンを消す
+        btn.remove();
+
+        // Microsoft Graphのユーザー情報にアクセスするためのアクセストークンの取得
+        const res = await myMSALObj.acquireTokenSilent({scopes: ['user.read'], account: loginResult.account});
+
+        // ユーザー情報をMicrosoft Graph経由で取得
+        const headersInfo = new Headers();
+        headersInfo.append('Authorization', `Bearer ${res.accessToken}`);
+        const options = {
+          method: 'GET',
+          headers: headersInfo
+        };
+        const fres = await fetch('https://graph.microsoft.com/v1.0/me', options);
+        const data = await fres.json();
+
+        // ユーザーアイコンをMicrosoft Graph経由で取得(アイコンを設定していない場合は404になる)
+        const photores = await fetch('https://graph.microsoft.com/v1.0/me/photo/$value', options).catch(e => { return null;});
+        let photoData = null;
+        if (photores.ok) {
+          photoData = await photores.blob();
+        }
+
+        const parent = document.getElementById('contents');
+        const agenda = document.getElementById('agenda');
+
+        // 取得したユーザー情報をHTML上に描画
+        if (photoData) {
+          const photoEl = document.createElement('img');
+          const url = (window.URL || window.webkitURL).createObjectURL(photoData);
+          photoEl.setAttribute('src', url);
+          parent.appendChild(photoEl);
+        }
+        const userInfoEl = document.createElement('label');
+        const content = document.createTextNode(data.displayName);
+        userInfoEl.appendChild(content);
+        userInfoEl.setAttribute('class', 'user-info');
+        parent.appendChild(userInfoEl);
+      }
+
+      // ボタンのクリックイベントに作成したファンクションを付与
+      btn.addEventListener('click', loginAction);
+  </script>

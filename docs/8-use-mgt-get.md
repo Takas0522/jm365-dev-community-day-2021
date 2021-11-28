@@ -102,8 +102,8 @@ scopesで先程Azure ADアプリケーションに設定した`Presence.Read`を
     </script>
   </head>
   <body>
-    <mgt-msal2-provider client-id="d7418163-08b4-4d5f-941f-45897951f01d"
-      authority="https://login.microsoftonline.com/1c4e72e7-52a1-475f-b469-0d4fbf3eae2e/"></mgt-msal2-provider>
+    <mgt-msal2-provider client-id="<ClientId>"
+      authority="https://login.microsoftonline.com/<TenantId>/"></mgt-msal2-provider>
     <mgt-login>
         <template data-type="signed-in-button-content">
           <div class="card" style="width: 18rem;">

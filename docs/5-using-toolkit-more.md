@@ -64,8 +64,8 @@ HTMLタグのプロパティで検索条件や表示する内容などを変更�
     <script src="https://unpkg.com/@microsoft/mgt/dist/bundle/mgt-loader.js"></script>
   </head>
   <body>
-    <mgt-msal2-provider client-id="d7418163-08b4-4d5f-941f-45897951f01d"
-      authority="https://login.microsoftonline.com/1c4e72e7-52a1-475f-b469-0d4fbf3eae2e/"></mgt-msal2-provider>
+    <mgt-msal2-provider client-id="<ClientId>"
+      authority="https://login.microsoftonline.com/<TenantId>/"></mgt-msal2-provider>
     <mgt-agenda group-by-day></mgt-agenda>
   </body>
 </html>
@@ -81,8 +81,8 @@ HTMLタグのプロパティで検索条件や表示する内容などを変更�
     <script src="https://unpkg.com/@microsoft/mgt/dist/bundle/mgt-loader.js"></script>
   </head>
   <body>
-    <mgt-msal2-provider client-id="d7418163-08b4-4d5f-941f-45897951f01d"
-      authority="https://login.microsoftonline.com/1c4e72e7-52a1-475f-b469-0d4fbf3eae2e/"></mgt-msal2-provider>
+    <mgt-msal2-provider client-id="<ClientId>"
+      authority="https://login.microsoftonline.com/<TenantId>/"></mgt-msal2-provider>
     <mgt-agenda></mgt-agenda>
   </body>
   <script>
@@ -102,8 +102,8 @@ JavaScriptからアクセスできる利点は数多くあります。
     <script src="https://unpkg.com/@microsoft/mgt/dist/bundle/mgt-loader.js"></script>
   </head>
   <body>
-    <mgt-msal2-provider client-id="d7418163-08b4-4d5f-941f-45897951f01d"
-      authority="https://login.microsoftonline.com/1c4e72e7-52a1-475f-b469-0d4fbf3eae2e/"></mgt-msal2-provider>
+    <mgt-msal2-provider client-id="<ClientId>"
+      authority="https://login.microsoftonline.com/<TenantId>/"></mgt-msal2-provider>
     <input type="date" placeholder="イベント取得開始日" id="inputdate"/>
     <mgt-agenda date="2021-11-07"></mgt-agenda>
   </body>
@@ -132,8 +132,8 @@ JavaScriptからアクセスできる利点は数多くあります。
     <script src="https://unpkg.com/@microsoft/mgt/dist/bundle/mgt-loader.js"></script>
   </head>
   <body>
-    <mgt-msal2-provider client-id="d7418163-08b4-4d5f-941f-45897951f01d"
-      authority="https://login.microsoftonline.com/1c4e72e7-52a1-475f-b469-0d4fbf3eae2e/"></mgt-msal2-provider>
+    <mgt-msal2-provider client-id="<ClientId>"
+      authority="https://login.microsoftonline.com/<TenantId>/"></mgt-msal2-provider>
     <input type="date" placeholder="イベント取得開始日" id="inputdate"/>
     <mgt-agenda date="2021-11-07"></mgt-agenda>
     <button id="reloadbutton">画面更新</button>
