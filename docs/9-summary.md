@@ -149,7 +149,6 @@ AAD内のユーザーの一覧が表示されるようなコンポーネント�
   <script>
     const button = document.getElementById('refresh-button');
     button.addEventListener('click', () => {
-      console.log('run')
       const getEl = document.querySelector('mgt-get');
       getEl.refresh();
     });

@@ -96,7 +96,7 @@ index.htmlを置き換える形で実装してみます。
 
 [Graph Tool Kitを利用してMicrosoft Graphを利用するWebアプリケーションを作る→](./4-using-toolkit.md)
 
-# 参考
+# 関連ドキュメント
 
 * [microsoftgraph/msgraph-sdk-javascript](https://github.com/microsoftgraph/msgraph-sdk-javascript)
 * [Microsoft Graph を使った JavaScript の単一ページ アプリの作成](https://docs.microsoft.com/ja-jp/graph/tutorials/javascript)

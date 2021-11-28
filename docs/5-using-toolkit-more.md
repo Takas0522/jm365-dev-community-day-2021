@@ -1,4 +1,4 @@
-[←Graph Tool Kitを利用してMicrosoft Graphを利用するWebアプリケーションを作る(./4-using-toolkit)
+[←Graph Tool Kitを利用してMicrosoft Graphを利用するWebアプリケーションを作る](./4-using-toolkit)
 
 `mgt-login`は自分の情報を表示しましたが表示したいのは自分の情報ばかりではありません。
 
