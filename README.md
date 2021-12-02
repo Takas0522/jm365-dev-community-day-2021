@@ -2,7 +2,7 @@
 
 このリポジトリは[Japan Microsoft 365 Developer Community Day 2021](https://jpm365dev.connpass.com/event/227478/)のMicrosoft Graphで使用されたリポジトリです。
 
-発表で使用されたスライドは[こちら]()を参照してください。
+発表で使用されたスライドは[こちら](https://www.slideshare.net/ssuser293809/microsoft-graph-toolkitm365)を参照してください。
 
 このリポジトリは下記の構成となっています。
 
